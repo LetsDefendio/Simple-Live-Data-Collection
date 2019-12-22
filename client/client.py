@@ -1,14 +1,14 @@
-# chat_client.py
-
 import sys
 import socket
 import select
 import os
 import subprocess
+from data import *
+
  
 def chat_client():
     if(len(sys.argv) < 3) :
-        print 'Usage : python chat_client.py hostname port'
+        print('Usage : python chat_client.py hostname port')
         sys.exit()
 
     host = sys.argv[1]
@@ -21,11 +21,11 @@ def chat_client():
     try :
         s.connect((host, port))
     except :
-        print 'Unable to connect'
+        print('Unable to connect')
         sys.exit()
      
     print 'Connected to remote host. You can start sending messages'
-    sys.stdout.write('[Me] '); sys.stdout.flush()
+#    sys.stdout.write('[Me] '); sys.stdout.flush()
      
     while 1:
         socket_list = [sys.stdin, s]
@@ -38,18 +38,25 @@ def chat_client():
                 # incoming message from remote server, s
                 data = sock.recv(4096)
                 if not data :
-                    print '\nDisconnected from chat server'
+                    print('\nDisconnected from  server')
                     sys.exit()
-                else :
+                else:
                     #print data
-                    sys.stdout.write(data)
-                    sys.stdout.write('[Me] '); sys.stdout.flush()     
-            
+#                    sys.stdout.write(data)
+                    try:
+                        if data.split()[2][0] == "!":
+                            command = data.split()[2][1:]
+                            value = getValue(command)
+                            s.send(str(value))
+                        #print(str(value))
+#                    sys.stdout.write('[Me] '); sys.stdout.flush()     
+                    except:
+                        pass            
             else :
                 # user entered a message
                 msg = sys.stdin.readline()
-                veri=subprocess.check_output(['date'])
-                msg += str(veri)
+                #veri=subprocess.check_output(['date'])
+                msg += str(msg)
                 s.send(msg)
                 sys.stdout.write('[Me] ');  sys.stdout.flush()
 
