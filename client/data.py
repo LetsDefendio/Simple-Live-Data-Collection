@@ -13,12 +13,19 @@ options = {
 "osVersion":"cat /etc/issue",
 "kernelVersion":"uname -a",
 "uptime":"w",
+"userAccounts":"cat /etc/passwd",
+"groups":"cat /etc/group",
+"routingTable":"netstat",
+"networkConnections":"netstat -anp",
+"loadedDrivers":"lsmod",
 
 }
 
 
-a=getData(options["kernelVersion"])
-print(a)
+def getValue(command):
+	value = getData(options[command])
+	return(value)
+
 
 def collectData(select):
 	
@@ -35,5 +42,4 @@ def collectData(select):
 
 
 #print(collectData("osVersion"))
-
 
