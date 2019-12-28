@@ -4,7 +4,7 @@ import select
 from data import *
 
  
-def client():
+def main():
 
     host = "192.168.131.129"
     port = int(9009)
@@ -45,4 +45,4 @@ def client():
 
                      
 if __name__ == "__main__":
-    sys.exit(client())
+    sys.exit(main())
