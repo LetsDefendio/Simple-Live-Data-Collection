@@ -1,13 +1,5 @@
 import subprocess
 
-
-
-def getData(command):
-	command = command.split()
-	data = subprocess.check_output(command)
-	return(data)
-
-
 options = {
 "systemDate":"date",
 "osVersion":"cat /etc/issue",
@@ -18,28 +10,20 @@ options = {
 "routingTable":"netstat",
 "networkConnections":"netstat -anp",
 "loadedDrivers":"lsmod",
-
+"networkInterfaces":"ifconfig -a",
+"routingTable":"netstat rn",
+"loadedDrivers":"lsmod",
+"browserHistory":"python3 browserHistory.py",
+"bashHistory":"python3 bashHistory.py"
 }
+
+
+def getData(command):
+	command = command.split()
+	data = subprocess.check_output(command)
+	return(data)
 
 
 def getValue(command):
 	value = getData(options[command])
 	return(value)
-
-
-def collectData(select):
-	
-	if select == "systemDate":
-		command = "date"
-
-	elif select == "osVersion":
-		command = "cat /etc/issue"
-
-	elif select == "kernelVersion":
-		pass
-
-	return(getData(command))
-
-
-#print(collectData("osVersion"))
-
