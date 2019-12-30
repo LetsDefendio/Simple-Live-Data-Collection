@@ -10,7 +10,7 @@
 
 ### Installation
 ```bash
-git clone https://github.com/omergunal/PoT
+git clone https://github.com/omergunal/Simple-Live-Data-Collection
 ```
 
 #### Server
