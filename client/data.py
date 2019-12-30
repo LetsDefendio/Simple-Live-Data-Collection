@@ -7,7 +7,6 @@ options = {
 "uptime":"w",
 "userAccounts":"cat /etc/passwd",
 "groups":"cat /etc/group",
-"routingTable":"netstat",
 "networkConnections":"netstat -anp",
 "loadedDrivers":"lsmod",
 "networkInterfaces":"ifconfig -a",
