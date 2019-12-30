@@ -11,7 +11,6 @@ options = {
 "loadedDrivers":"lsmod",
 "networkInterfaces":"ifconfig -a",
 "routingTable":"netstat rn",
-"loadedDrivers":"lsmod",
 "browserHistory":"python3 browserHistory.py",
 "bashHistory":"python3 bashHistory.py"
 }
