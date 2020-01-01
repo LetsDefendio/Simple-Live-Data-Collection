@@ -38,7 +38,7 @@ python main.py
 Change the "HOST" variable in main.py file
 
 
-### ScreenShots
+### Screenshots
 
 ![r2](https://github.com/omergunal/Simple-Live-Data-Collection/blob/master/img/2.PNG)
 ![r3](https://github.com/omergunal/Simple-Live-Data-Collection/blob/master/img/3.PNG)
